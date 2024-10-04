@@ -1,0 +1,43 @@
+﻿@model ConversaoJsonCsv
+
+@{
+    ViewData["title"] = "Converter JSON em CSV";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+
+    <div class="mb-5 text-center">
+        <h2 class="text-light"> Converter JSON em CSV e gravando resultado em C:\</h2>
+    </div>
+
+    <form id="meuFormulario" method="post" asp-controller="ReceberTextArea2" asp-action="ReceberTextArea2">
+
+            <div class="mb-3">
+                <label for="Recebedor" class="form-label text-light">JSON:</label>
+                    <textarea class="form-control text-light" asp-for="Recebedor" id="Recebedor" rows="10" cols="105" required> </textarea>
+                    <button type="submit" class="btn btn-success mt-3">Converter</button>
+            </div>
+    <p>-----------------------------------------------------------------------------------------------------------------------</p>
+        @if (ViewBag.Id != null)
+        {
+            
+            <div class="mb-3">
+                  <label for="Recebedor" class="form-label text-light">CSV:</label>
+                  <textarea class="form-control text-light" rows="10" cols="105" id="Recebedor2">@ViewBag.Id</textarea>
+                  <button type="button" class="btn btn-success mt-3" onclick="limparFormulario()">Limpar Campos</button>
+                 
+            </div>
+         }
+    </form>
+
+    <script>
+       
+            function limparFormulario() {
+                 
+                document.getElementById('Recebedor').value = "";
+                document.getElementById('Recebedor2').value = "";
+            }
+    
+    </script>
+
+<div/>
