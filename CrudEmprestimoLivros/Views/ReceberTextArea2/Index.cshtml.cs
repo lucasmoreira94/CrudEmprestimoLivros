@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CrudEmprestimoLivros.Views.ReceberTextArea2
+namespace ExercicioYardim.Views.ReceberTextArea2
 {
     public class IndexModel : PageModel
     {

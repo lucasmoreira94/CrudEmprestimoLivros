@@ -1,8 +1,8 @@
-﻿using CrudEmprestimoLivros.Models;
+﻿using ExercicioYardim.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CrudEmprestimoLivros.Controllers
+namespace ExercicioYardim.Controllers
 {
     public class HomeController : Controller
     {

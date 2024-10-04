@@ -1,10 +1,10 @@
-﻿using CrudEmprestimoLivros.Models;
+﻿using ExercicioYardim.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Text.Json;
 
-namespace CrudEmprestimoLivros.Controllers
+namespace ExercicioYardim.Controllers
 {
     public class ReceberTextArea2Controller:Controller
     {
@@ -29,10 +29,10 @@ namespace CrudEmprestimoLivros.Controllers
                 {
                     throw new ArgumentException("Dados do campo JSON estão  vazios !");
                 }
-                
+
                 if (json.TrimStart().StartsWith("["))
                 {
-                     
+
                     var registros = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(json);
                     ConverterJsonParaCsv(registros, caminhoCsv);
 
@@ -40,14 +40,17 @@ namespace CrudEmprestimoLivros.Controllers
 
                 else if (json.TrimStart().StartsWith("{"))
                 {
-                    json = json.Trim('{', '}');  
-                    json = "[" + json + "]";  
+                    json = json.TrimStart('{');
+                    json = json.TrimEnd('}');
+                    json = "[" + json + "]";
 
                     var registros = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(json);
                     ConverterJsonParaCsv(registros, caminhoCsv);
                 }
-
-                throw new ArgumentException("A string informada não é um JSON !");
+                else
+                {
+                    throw new ArgumentException("A string informada não é um JSON !");
+                }
 
             }
             catch (JsonException ex)

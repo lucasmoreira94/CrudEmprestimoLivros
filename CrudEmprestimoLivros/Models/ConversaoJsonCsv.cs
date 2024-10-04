@@ -1,5 +1,5 @@
 ﻿
-namespace CrudEmprestimoLivros.Models
+namespace ExercicioYardim.Models
 {
     public class ConversaoJsonCsv
     {
